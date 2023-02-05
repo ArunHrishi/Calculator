@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .bor{
+            border: 3px solid rgb(77, 77, 77);
+        }
+        .dis{
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(77, 77, 77);
+        }
+        .display{
+            height: 65px;
+            border: 5px solid rgb(255, 187, 0);
+        }
+        .cell{
+            height: 45px;
+        }
+        .cell1{
+            height: 45px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 219, 121);
+            /* font-size: 22px; */
+            /* font-weight: bolder; */
+        }
+        .cell2{
+            height: 45px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 219, 121);
+            /* font-size: 22px; */
+            /* font-weight: bolder; */
+        }
+        .cell3{
+            height: 45px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(255, 136, 0);
+            /* font-size: 22px; */
+            /* font-weight: bolder; */
+        }
+        p{
+            font-size: 22px;
+        }
+        .row h1{
+            color: rgb(255, 136, 0);
+        }
+        .row input{
+            font-size: 22px;
+        }
+        .cell:hover{
+            background-color: rgb(186, 186, 186);
+        }
+        .cell1:hover{
+            background-color: #fff;
+        }
+        .cell2:hover{
+            background-color: #fff;
+        }
+        .cell3:hover{
+            background-color: #fff;
+            color: #000;
+        }
+        .cell:active{
+            background-color: #fff;
+        }
+        .cell1:active{
+            background-color: rgb(255, 219, 121);
+        }
+        .cell2:active{
+            background-color: rgb(255, 219, 121);
+        }
+        .cell3:active{
+            background-color: rgb(255, 136, 0);
+            color: #fff;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center mt-5 mb-5">CALCULATOR</h1>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="container-fluid bor rounded-1">
+                    <div class="row dis">
+                        <input type="text" class="display rounded-1" id="calculatorScreen">
+                    </div>
+                    <div class="row">
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent()">
+                            <p class="text-center mt-1">(</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent()">
+                            <p class="text-center mt-1">)</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="backContent()">
+                            <p class="text-center mt-1">&#9003</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell1" onclick="displayContent('/')">
+                            <p class="text-center mt-1">&#247</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('7')">
+                            <p class="text-center mt-1">7</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('8')">
+                            <p class="text-center mt-1">8</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('9')">
+                            <p class="text-center mt-1">9</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell2" onclick="displayContent('*')">
+                            <p class="text-center mt-1">&#215</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('4')">
+                            <p class="text-center mt-1">4</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('5')">
+                            <p class="text-center mt-1">5</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('6')">
+                            <p class="text-center mt-1">6</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell2" onclick="displayContent('-')">
+                            <p class="text-center mt-1">&#8722</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('1')">
+                            <p class="text-center mt-1">1</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('2')">
+                            <p class="text-center mt-1">2</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('3')">
+                            <p class="text-center mt-1">3</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell2" onclick="displayContent('+')">
+                            <p class="text-center mt-1">&#43</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('0')">
+                            <p class="text-center mt-1">0</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="displayContent('.')">
+                            <p class="text-center mt-1">.</p>
+                        </div>
+                        <div class="col-3 border border-secondary-subtle cell" onclick="allClear()">
+                            <p class="text-center text-danger mt-1">AC</p>
+                        </div>
+                        <div class="col-3 cell3" onclick="evaluateExpr()">
+                            <p class="text-center mt-1">&#61</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="./calc.js"></script>
+</html>
